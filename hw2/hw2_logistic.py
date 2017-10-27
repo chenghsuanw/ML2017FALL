@@ -57,13 +57,3 @@ f.write("id,label\n")
 for i in range(len(result_test)):
 	f.write(str(i+1)+","+str(result_test[i])+"\n")
 f.close()
-
-maxi = 1
-for i,j in enumerate(w):
-	if abs(j) > w[maxi]:
-		maxi = i
-
-print(maxi)
-f = open("weight.txt","w")
-f.write(str(w.shape)+"\n"+str(w))
-f.close()
