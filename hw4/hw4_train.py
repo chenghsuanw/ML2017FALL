@@ -135,23 +135,23 @@ def main():
 
 	model = build_model()
 	
-	# earlystopping = EarlyStopping(monitor='val_acc', patience = 1, verbose=1, mode='max')
-	# checkpoint = ModelCheckpoint('model.h5', monitor='val_acc', verbose=1, save_best_only=True, mode='max')
+	earlystopping = EarlyStopping(monitor='val_acc', patience = 1, verbose=1, mode='max')
+	checkpoint = ModelCheckpoint('model.h5', monitor='val_acc', verbose=1, save_best_only=True, mode='max')
 
-	# model.fit(x_label_seq, y_label, validation_data=(x_validation_seq, y_validation), epochs=15, batch_size=1024, callbacks=[earlystopping, checkpoint])
+	model.fit(x_label_seq, y_label, validation_data=(x_validation_seq, y_validation), epochs=15, batch_size=1024, callbacks=[earlystopping, checkpoint])
 	
-	# # semi_training
-	# x_nolabel_all = get_nolabel_data()
+	# semi_training
+	x_nolabel_all = get_nolabel_data()
 	
-	# for i in range(2):
-	# 	model = load_model('model.h5')
-	# 	x_nolabel_all_seq = to_sequences(token, x_nolabel_all)
-	# 	y_nolabel_all_prob = model.predict(x_nolabel_all_seq, batch_size=1024, verbose=1)
-	# 	x_nolabel_train, y_nolabel_train = get_semi_training_data(x_nolabel_all, y_nolabel_all_prob)
-	# 	x_nolabel_train_seq = to_sequences(token, x_nolabel_train)
-	# 	x_nolabel_train_seq = np.concatenate((x_nolabel_train_seq, x_label_seq), axis=0)
-	# 	y_nolabel_train = np.concatenate((y_nolabel_train, y_label), axis=0)
-	# 	model.fit(x_nolabel_train_seq, y_nolabel_train, validation_data=(x_validation_seq, y_validation), epochs=6, batch_size=128, callbacks=[earlystopping, checkpoint])
+	for i in range(2):
+		model = load_model('model.h5')
+		x_nolabel_all_seq = to_sequences(token, x_nolabel_all)
+		y_nolabel_all_prob = model.predict(x_nolabel_all_seq, batch_size=1024, verbose=1)
+		x_nolabel_train, y_nolabel_train = get_semi_training_data(x_nolabel_all, y_nolabel_all_prob)
+		x_nolabel_train_seq = to_sequences(token, x_nolabel_train)
+		x_nolabel_train_seq = np.concatenate((x_nolabel_train_seq, x_label_seq), axis=0)
+		y_nolabel_train = np.concatenate((y_nolabel_train, y_label), axis=0)
+		model.fit(x_nolabel_train_seq, y_nolabel_train, validation_data=(x_validation_seq, y_validation), epochs=6, batch_size=128, callbacks=[earlystopping, checkpoint])
 
 
 if __name__ == '__main__':
