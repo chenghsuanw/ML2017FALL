@@ -1,0 +1,30 @@
+使用套件 ： 
+tensorflow 1.4.1(須可以執行cudnnGRU)
+json 2.0.9
+jieba 0.39(default dictionary)
+gensim 3.2.0
+numpy 1.14.0
+pickle
+os
+sys
+以及其他與他們相依的library
+
+硬體需求： 
+ram 7G 
+
+支援cuda toolkit 與 cudnn library 並有8G以上vram 的 NVIDIA GPU
+(這個model是用單張gtx 1080訓練的,所以不確定少於8GBvram的電腦是否可以執行)   
+
+1硬碟空間
+
+操作指令
+先cd src/
+目錄下有2個bash檔
+
+./download.sh 
+最先執行 會下載我們訓練好的最佳模型(./best_model/)與w2v(./embeddings/)模型
+
+./final_best.sh <<test.json path>> <<result.csv path>>
+輸出最佳結果 
+
+
