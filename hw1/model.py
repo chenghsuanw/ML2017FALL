@@ -12,3 +12,6 @@ class Model:
 		self.learning_rate = learning_rate
 		self.regular_factor = regular_factor
 		self.error = 0
+
+if __name__ == '__main__':
+	main()

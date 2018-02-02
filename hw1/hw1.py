@@ -9,20 +9,13 @@ test_raw = np.delete(test_raw,range(2),1)
 test_raw = test_raw.astype(float)
 
 weight = np.loadtxt("weight.txt")
-f = open("bias.txt","r")
+bias = np.loadtxt("bias.txt")
 
-bias = float(f.read())
-
-f.close()
-
-f = open(sys.argv[2],"w")
-
-f.write("id,value\n")
-for i in range(240):
-	test_data = np.array(test_raw[i*18:(i+1)*18]).T
-	for j in range(18):
-		test_data = np.column_stack((test_data, test_data[:,j]*test_data[:,9]))
-	y = np.sum(weight * test_data) + bias
-	f.write("id_"+str(i)+","+str(y)+"\n")
-f.close()
-
+with open(sys.argv[2], 'w') as f:
+	f.write("id,value\n")
+	for i in range(240):
+		test_data = np.array(test_raw[i*18:(i+1)*18]).T
+		for j in range(18):
+			test_data = np.column_stack((test_data, test_data[:,j]*test_data[:,9]))
+		y = np.sum(weight * test_data) + bias
+		f.write("id_"+str(i)+","+str(y)+"\n")

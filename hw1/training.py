@@ -35,8 +35,6 @@ def train(model, y_set):
 	lr_b = 0
 
 	for i in range(iteration):
-
-
 		#initial the gradient
 		weight_grad = np.zeros([train_hour,model.training_matrix.shape[1]])
 		bias_grad = 0
@@ -63,23 +61,24 @@ def train(model, y_set):
 
 	model.error = np.sqrt(np.mean(error_set[-(model.training_matrix.shape[0] - (train_hour+1)):]))
 
-raw_training_matrix, y_set = preprocess()
-#PM2.5 square
-model_training_matrix = raw_training_matrix
-for i in range(18):
-	model_training_matrix = np.column_stack((model_training_matrix, model_training_matrix[:,i]*model_training_matrix[:,9]))
+def main():
+	raw_training_matrix, y_set = preprocess()
+	#PM2.5 square
+	model_training_matrix = raw_training_matrix
+	for i in range(18):
+		model_training_matrix = np.column_stack((model_training_matrix, model_training_matrix[:,i]*model_training_matrix[:,9]))
 
-model_init_weight = np.array([[0.01] * (model_training_matrix.shape[1])] * train_hour)
-model_init_bias = 0
-model_init_learning_rate = 1.75e-2
-model_regular_factor = 0
+	model_init_weight = np.array([[0.01] * (model_training_matrix.shape[1])] * train_hour)
+	model_init_bias = 0
+	model_init_learning_rate = 1.75e-2
+	model_regular_factor = 0
 
-model = model.Model(model_training_matrix, model_init_weight, model_init_bias, model_init_learning_rate, model_regular_factor)
-train(model, y_set)
-print("model error", model.error)
+	model = model.Model(model_training_matrix, model_init_weight, model_init_bias, model_init_learning_rate, model_regular_factor)
+	train(model, y_set)
+	print("model error", model.error)
 
-np.savetxt("weight.txt",model.weight)
+	np.savetxt("weight.txt", model.weight)
+	np.savetxt("bias.txt", [model.bias])
 
-f = open("bias.txt","w")
-f.write(str(model.bias))
-f.close()
+if __name__ == '__main__':
+	main()
