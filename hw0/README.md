@@ -15,7 +15,8 @@ after: <br>
 ![image](https://github.com/chenghsuanw/ML2017FALL/blob/master/hw0/asset/after.jpg)
 
 ## Environment
-python3
+python3 <br>
+PIL
 
 ## Usage
 ```$ python Q2.py <Image_File_Path>```
