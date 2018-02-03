@@ -12,7 +12,7 @@ def main():
 			rgb = (rgb[0]//2, rgb[1]//2, rgb[2]//2)
 			im.putpixel((x, y), rgb)
 
-	im.save("Q2.png")
+	im.save("Q2.jpg")
 
 if __name__ == '__main__':
 	main()
