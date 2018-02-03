@@ -6,7 +6,7 @@ Output File (Q1.txt): <br> &lt;words&gt; &lt;ID&gt; &lt;frequency&gt;
 python3
 
 ## Usage
-```$ python Q1.py <Input_File_Path>```
+```$ python Q1.py [Input_File_Path]```
 
 # Q2: Halve the RGB of an image
 before: <br>
@@ -19,4 +19,4 @@ python3 <br>
 PIL
 
 ## Usage
-```$ python Q2.py <Image_File_Path>```
+```$ python Q2.py [Image_File_Path]```
