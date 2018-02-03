@@ -1,13 +1,14 @@
 import pandas as pd
 import numpy as np
 import model
+import sys
 
 iteration = 10000
 train_hour = 9
 
 #return training sets and validation sets
 def preprocess():
-	train_csv = pd.read_csv("train.csv", encoding = "big5")
+	train_csv = pd.read_csv(sys.argv[1], encoding = "big5")
 	train_csv.replace("NR",0,inplace=True)
 	train_raw = pd.DataFrame.as_matrix(train_csv)
 	train_raw = np.delete(train_raw,range(3),1)
