@@ -22,4 +22,4 @@ keras 2.0.8
 ```$ python hw3_train.py [Training_File]```
 
 #### Testing (You can directly use the pretrained model)
-```$ python hw3_test.py [Testing_File]```
+```$ python hw3_test.py [Testing_File] [Output_File]```
