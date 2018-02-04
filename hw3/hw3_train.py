@@ -2,12 +2,6 @@ import numpy as np
 import pandas as pd
 import sys
 import random
-import pickle
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import pydot
-import itertools
 
 import keras
 from keras.models import Sequential, load_model
@@ -20,7 +14,6 @@ from keras.layers.normalization import BatchNormalization
 import tensorflow as tf
 import keras.backend.tensorflow_backend as ktf
 from keras.utils.vis_utils import plot_model
-from sklearn.metrics import confusion_matrix
 
 
 def get_session():
