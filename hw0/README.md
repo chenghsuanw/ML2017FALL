@@ -9,10 +9,9 @@ python3
 ```$ python Q1.py [Input_File_Path]```
 
 # Q2: Halve the RGB of an image
-#### Before
-![image](https://github.com/chenghsuanw/ML2017FALL/blob/master/hw0/asset/before.jpg) <br>
-#### After
-![image](https://github.com/chenghsuanw/ML2017FALL/blob/master/hw0/asset/after.jpg)
+| Before | After |
+|---|---|
+| ![image](https://github.com/chenghsuanw/ML2017FALL/blob/master/hw0/asset/before.jpg) | ![image](https://github.com/chenghsuanw/ML2017FALL/blob/master/hw0/asset/after.jpg) |
 
 ## Environment
 python3 <br>
