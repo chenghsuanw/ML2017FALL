@@ -1,5 +1,5 @@
 # Image Sentiment Classification
-Given a facial image, classify the sentiment. There are total 7 sentiments.
+Given a facial image, using Convolution Neural Network to classify the sentiment. There are total 7 sentiments.
 
 | 0 (Angry) | 1 (Hate) | 2 (Fear) | 3 (Joy) | 4 (Sad) | 5 (Surprise) | 6 (Neutral) |
 |---|---|---|---|---|---|---|
