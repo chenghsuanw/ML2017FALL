@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import sys
 
 from keras.models import Model, load_model
 from keras.layers import Embedding, Input
@@ -11,7 +12,7 @@ import tensorflow as tf
 import keras.backend.tensorflow_backend as ktf
 
 
-train_file = 'train.csv'
+train_file = sys.argv[1]
 
 train_proportion = 0.9
 epochs = 150
@@ -77,7 +78,7 @@ def main():
 	model = build_model_MF(num_user, num_movie)
 	model.summary()
 	
-	modelcheckpoint = ModelCheckpoint('hw5_model.h5', monitor='val_loss', verbose=1, save_best_only=True, mode='min')
+	modelcheckpoint = ModelCheckpoint('model.h5', monitor='val_loss', verbose=1, save_best_only=True, mode='min')
 	earlystopping = EarlyStopping(monitor='val_loss', patience = 3, verbose=1, mode='min')
 	reducelr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=0, min_lr=0)
 
