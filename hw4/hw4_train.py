@@ -2,10 +2,6 @@ import numpy as np
 import sys
 import pickle
 
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-
 from keras.models import Sequential, load_model
 from keras.layers import Dense, LSTM, Dropout, Bidirectional, GRU
 from keras.layers import BatchNormalization
@@ -112,15 +108,6 @@ def to_sequences(token, text):
 	text_seq = token.texts_to_sequences(text)
 	text_seq = sequence.pad_sequences(text_seq, maxlen=sequence_length)
 	return text_seq
-
-def plot_history(history, path):
-	plt.plot(history.history['val_acc'])
-	plt.title('model accuracy')
-	plt.ylabel('accuracy')
-	plt.xlabel('epoch')
-	plt.legend(['val_acc'], loc='upper left')
-	plt.savefig(path)
-	plt.clf()
 
 def main():
 
