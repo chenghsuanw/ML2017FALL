@@ -20,7 +20,7 @@ There are 415 600*600 colored faces.
 ```$ python pca.py [Image_Directory] [Image_File]```
 
 # Image Clustering
-Given images which are from 2 datasets, cluster them without label.
+Given images which are from 2 datasets, determine whether 2 images are from the same dataset with unsupervised learning.
 
 ## Environment
 python3 <br>
@@ -31,9 +31,11 @@ scikit-learn 0.18.1
 ## Data
 #### [Images](https://drive.google.com/open?id=1hGVzLiOGX7YvTFeOzhThLOf0EVnScA4x)
 The data is .npy file. Using ```np.load()``` to get an (140000, 784) ndarray. Each row represents a 28*28 image.
+#### [Testing](https://drive.google.com/open?id=1Ji43jPI3GWo58EWoCTaBYHIrgI0C5wo8)
+Each row is [ID] [Image1_ID] [Image2_ID]. 
 
 ## Usage
 #### Training
-```$ python hw6_train.py [Training_File]```
+```$ python hw6_train.py [Image_File]```
 #### Testing
 ```$ python hw6_test.py [Image_File] [Testing_File] [Output_File]```
