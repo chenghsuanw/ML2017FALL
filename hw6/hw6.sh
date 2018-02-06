@@ -1,2 +1,2 @@
 #!/bin/bash
-python hw6.py $1 $2 $3
+python hw6_test.py $1 $2 $3
